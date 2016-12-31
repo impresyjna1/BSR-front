@@ -1,4 +1,4 @@
-package classes;
+package bsr.front;
 
 public class Controller {
 }

@@ -4,11 +4,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Client extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/resources/login_activity.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/login_activity.fxml"));
         primaryStage.setTitle("Impresyjny bank");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
