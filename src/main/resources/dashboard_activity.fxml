@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bsr.front.controllers.DashboardActivityController">
    <top>
       <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #303F9F;" BorderPane.alignment="CENTER">
          <items>
@@ -20,8 +20,9 @@
       </ToolBar>
    </top>
    <left>
-      <VBox alignment="TOP_CENTER" prefHeight="560.0" prefWidth="250.0" spacing="20.0" style="-fx-background-color: #FFC107;" BorderPane.alignment="CENTER">
+      <VBox alignment="TOP_CENTER" minHeight="250.0" minWidth="250.0" prefHeight="560.0" prefWidth="250.0" spacing="20.0" style="-fx-background-color: #FFC107;" BorderPane.alignment="CENTER">
          <children>
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Home" textFill="WHITE" />
             <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Transfer money" textFill="WHITE" />
             <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="History" textFill="WHITE" />
             <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Accounts" textFill="WHITE" />
@@ -35,6 +36,6 @@
       </VBox>
    </left>
    <center>
-      <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER" />
+      <AnchorPane fx:id="containerAnchor" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #000000;" BorderPane.alignment="CENTER" />
    </center>
 </BorderPane>
