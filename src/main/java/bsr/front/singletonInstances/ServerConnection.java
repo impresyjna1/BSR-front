@@ -39,11 +39,6 @@ public class ServerConnection {
         qName = new QName("http://innerServices.server.bsr/", "AccountServiceService");
         service = Service.create(url, qName);
         accountService = service.getPort(AccountService.class);
-//
-//        url = new URL(ConstantsUtil.BANK_OPERATIONS_SERVICE_WSDL_URL);
-//        qName = new QName("http://services.bank.bsr.put.poznan.pl/", "BankOperationServiceService");
-//        service = Service.create(url, qName);
-//        bankOperationService = service.getPort(BankOperationService.class);
     }
 
     public UserService getUserService() {
