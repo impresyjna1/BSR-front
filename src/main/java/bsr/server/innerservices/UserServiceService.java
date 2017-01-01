@@ -1,5 +1,5 @@
 
-package bsr.server;
+package bsr.server.innerservices;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -17,14 +17,14 @@ import javax.xml.ws.WebServiceFeature;
  * Generated source version: 2.2
  * 
  */
-@WebServiceClient(name = "UserServiceService", targetNamespace = "http://server.bsr/", wsdlLocation = "http://localhost:8080/users?wsdl")
+@WebServiceClient(name = "UserServiceService", targetNamespace = "http://innerServices.server.bsr/", wsdlLocation = "http://localhost:8080/users?wsdl")
 public class UserServiceService
     extends Service
 {
 
     private final static URL USERSERVICESERVICE_WSDL_LOCATION;
     private final static WebServiceException USERSERVICESERVICE_EXCEPTION;
-    private final static QName USERSERVICESERVICE_QNAME = new QName("http://server.bsr/", "UserServiceService");
+    private final static QName USERSERVICESERVICE_QNAME = new QName("http://innerServices.server.bsr/", "UserServiceService");
 
     static {
         URL url = null;
@@ -69,7 +69,7 @@ public class UserServiceService
      */
     @WebEndpoint(name = "UserServicePort")
     public UserService getUserServicePort() {
-        return super.getPort(new QName("http://server.bsr/", "UserServicePort"), UserService.class);
+        return super.getPort(new QName("http://innerServices.server.bsr/", "UserServicePort"), UserService.class);
     }
 
     /**
@@ -81,7 +81,7 @@ public class UserServiceService
      */
     @WebEndpoint(name = "UserServicePort")
     public UserService getUserServicePort(WebServiceFeature... features) {
-        return super.getPort(new QName("http://server.bsr/", "UserServicePort"), UserService.class, features);
+        return super.getPort(new QName("http://innerServices.server.bsr/", "UserServicePort"), UserService.class, features);
     }
 
     private static URL __getWsdlLocation() {

@@ -1,5 +1,5 @@
 
-package bsr.server;
+package bsr.server.innerservices;
 
 import javax.xml.ws.WebFault;
 
@@ -10,8 +10,8 @@ import javax.xml.ws.WebFault;
  * Generated source version: 2.2
  * 
  */
-@WebFault(name = "AuthException", targetNamespace = "http://server.bsr/")
-public class AuthException_Exception
+@WebFault(name = "ServerException", targetNamespace = "http://innerServices.server.bsr/")
+public class ServerException_Exception
     extends Exception
 {
 
@@ -19,14 +19,14 @@ public class AuthException_Exception
      * Java type that goes as soapenv:Fault detail element.
      * 
      */
-    private AuthException faultInfo;
+    private ServerException faultInfo;
 
     /**
      * 
      * @param faultInfo
      * @param message
      */
-    public AuthException_Exception(String message, AuthException faultInfo) {
+    public ServerException_Exception(String message, ServerException faultInfo) {
         super(message);
         this.faultInfo = faultInfo;
     }
@@ -37,7 +37,7 @@ public class AuthException_Exception
      * @param cause
      * @param message
      */
-    public AuthException_Exception(String message, AuthException faultInfo, Throwable cause) {
+    public ServerException_Exception(String message, ServerException faultInfo, Throwable cause) {
         super(message, cause);
         this.faultInfo = faultInfo;
     }
@@ -45,9 +45,9 @@ public class AuthException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: bsr.server.AuthException
+     *     returns fault bean: bsr.server.innerservices.ServerException
      */
-    public AuthException getFaultInfo() {
+    public ServerException getFaultInfo() {
         return faultInfo;
     }
 

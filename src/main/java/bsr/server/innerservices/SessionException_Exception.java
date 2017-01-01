@@ -1,5 +1,5 @@
 
-package bsr.server;
+package bsr.server.innerservices;
 
 import javax.xml.ws.WebFault;
 
@@ -10,8 +10,8 @@ import javax.xml.ws.WebFault;
  * Generated source version: 2.2
  * 
  */
-@WebFault(name = "ServerException", targetNamespace = "http://server.bsr/")
-public class ServerException_Exception
+@WebFault(name = "SessionException", targetNamespace = "http://innerServices.server.bsr/")
+public class SessionException_Exception
     extends Exception
 {
 
@@ -19,14 +19,14 @@ public class ServerException_Exception
      * Java type that goes as soapenv:Fault detail element.
      * 
      */
-    private ServerException faultInfo;
+    private SessionException faultInfo;
 
     /**
      * 
      * @param faultInfo
      * @param message
      */
-    public ServerException_Exception(String message, ServerException faultInfo) {
+    public SessionException_Exception(String message, SessionException faultInfo) {
         super(message);
         this.faultInfo = faultInfo;
     }
@@ -37,7 +37,7 @@ public class ServerException_Exception
      * @param cause
      * @param message
      */
-    public ServerException_Exception(String message, ServerException faultInfo, Throwable cause) {
+    public SessionException_Exception(String message, SessionException faultInfo, Throwable cause) {
         super(message, cause);
         this.faultInfo = faultInfo;
     }
@@ -45,9 +45,9 @@ public class ServerException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: bsr.server.ServerException
+     *     returns fault bean: bsr.server.innerservices.SessionException
      */
-    public ServerException getFaultInfo() {
+    public SessionException getFaultInfo() {
         return faultInfo;
     }
 

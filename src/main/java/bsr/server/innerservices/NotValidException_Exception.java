@@ -1,5 +1,5 @@
 
-package bsr.server;
+package bsr.server.innerservices;
 
 import javax.xml.ws.WebFault;
 
@@ -10,7 +10,7 @@ import javax.xml.ws.WebFault;
  * Generated source version: 2.2
  * 
  */
-@WebFault(name = "NotValidException", targetNamespace = "http://server.bsr/")
+@WebFault(name = "NotValidException", targetNamespace = "http://innerServices.server.bsr/")
 public class NotValidException_Exception
     extends Exception
 {
@@ -45,7 +45,7 @@ public class NotValidException_Exception
     /**
      * 
      * @return
-     *     returns fault bean: bsr.server.NotValidException
+     *     returns fault bean: bsr.server.innerservices.NotValidException
      */
     public NotValidException getFaultInfo() {
         return faultInfo;

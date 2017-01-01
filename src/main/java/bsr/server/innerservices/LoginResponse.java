@@ -1,5 +1,5 @@
 
-package bsr.server;
+package bsr.server.innerservices;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
