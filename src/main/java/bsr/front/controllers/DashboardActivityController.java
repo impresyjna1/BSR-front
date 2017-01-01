@@ -16,16 +16,15 @@ public class DashboardActivityController {
 
     @FXML
     public void initialize() {
-        anchorInit();
+        anchorWithFragment("/dashboard_fragment.fxml");
     }
 
-    public void anchorInit() {
+    public void anchorWithFragment(String fragmentPathName) {
         try {
-            Node view = FXMLLoader.load(getClass().getResource("/dashboard_fragment.fxml"));
+            Node view = FXMLLoader.load(getClass().getResource(fragmentPathName));
             containerAnchor.getChildren().addAll(view);
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("Init");
     }
 }
