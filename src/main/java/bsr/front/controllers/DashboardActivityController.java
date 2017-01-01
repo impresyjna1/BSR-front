@@ -1,5 +1,6 @@
 package bsr.front.controllers;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -17,6 +18,41 @@ public class DashboardActivityController {
     @FXML
     public void initialize() {
         anchorWithFragment("/dashboard_fragment.fxml");
+    }
+
+    @FXML
+    private void homeButtonAction(ActionEvent event) {
+        anchorWithFragment("/dashboard_fragment.fxml");
+    }
+
+    @FXML
+    private void accountsButtonAction(ActionEvent event) {
+        anchorWithFragment("/accounts_fragment.fxml");
+    }
+
+    @FXML
+    private void bankPaymentAction(ActionEvent event) {
+        anchorWithFragment("/bank_payment_fragment.fxml");
+    }
+
+    @FXML
+    private void depositMoneyAction(ActionEvent event) {
+        anchorWithFragment("/deposit_money_fragment.fxml");
+    }
+
+    @FXML
+    private void historyAction(ActionEvent event) {
+        anchorWithFragment("/history_fragment.fxml");
+    }
+
+    @FXML
+    private void transferMoneyAction(ActionEvent event) {
+        anchorWithFragment("/transfer_money_fragment.fxml");
+    }
+
+    @FXML
+    private void withdrawMoneyAction(ActionEvent event) {
+        anchorWithFragment("/withdraw_money_fragment.fxml");
     }
 
     public void anchorWithFragment(String fragmentPathName) {

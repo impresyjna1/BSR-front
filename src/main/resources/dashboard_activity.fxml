@@ -22,13 +22,13 @@
    <left>
       <VBox alignment="TOP_CENTER" minHeight="250.0" minWidth="250.0" prefHeight="560.0" prefWidth="250.0" spacing="20.0" style="-fx-background-color: #FFC107;" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Home" textFill="WHITE" />
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Transfer money" textFill="WHITE" />
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="History" textFill="WHITE" />
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Accounts" textFill="WHITE" />
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Depositing money" textFill="WHITE" />
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Withdraw money" textFill="WHITE" />
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Bank payment" textFill="WHITE" />
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Home" textFill="WHITE" onAction="#homeButtonAction"/>
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Transfer money" textFill="WHITE" onAction="#transferMoneyAction" />
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="History" textFill="WHITE" onAction="#historyAction" />
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Accounts" textFill="WHITE" onAction="#accountsButtonAction" />
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Deposit money" textFill="WHITE" onAction="#depositMoneyAction" />
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Withdraw money" textFill="WHITE" onAction="#withdrawMoneyAction" />
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Bank payment" textFill="WHITE" onAction="#bankPaymentAction" />
          </children>
          <padding>
             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
