@@ -26,7 +26,7 @@
                   <Label alignment="CENTER" text="Account" GridPane.rowIndex="1" />
                   <Label text="Amount" GridPane.rowIndex="2" />
                   <TextField GridPane.columnIndex="1" />
-                  <ChoiceBox maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <ChoiceBox fx:id="accountChoice" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
                <VBox.margin>

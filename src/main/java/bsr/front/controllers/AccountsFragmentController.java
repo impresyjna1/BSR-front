@@ -35,12 +35,10 @@ public class AccountsFragmentController {
         ServerConnection serverConnection = ServerConnection.getInstance();
         try {
             List<Account> accountsList = serverConnection.getAccountService().getAccounts();
-            System.out.println(accountsList.size());
             ObservableList<AccountModel> accountModels = FXCollections.observableArrayList();
             for(Account account: accountsList) {
                 accountModels.add(new AccountModel(account.getAccountNumber(), account.getAccountAmount()));
             }
-            System.out.println(accountModels.size());
             accountTable.setItems(accountModels);
             initializeTab();
         } catch (SessionException_Exception | UserException_Exception e) {
