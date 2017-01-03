@@ -27,22 +27,13 @@ public interface UserService {
 
     /**
      * 
-     */
-    @WebMethod
-    @RequestWrapper(localName = "getUser", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetUser")
-    @ResponseWrapper(localName = "getUserResponse", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetUserResponse")
-    @Action(input = "http://innerServices.server.bsr/UserService/getUserRequest", output = "http://innerServices.server.bsr/UserService/getUserResponse")
-    public void getUser();
-
-    /**
-     * 
      * @param password
      * @param clientNumber
      * @return
      *     returns int
+     * @throws NotValidException_Exception
      * @throws ServerException_Exception
      * @throws AuthException_Exception
-     * @throws NotValidException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -60,5 +51,14 @@ public interface UserService {
         String password)
         throws AuthException_Exception, NotValidException_Exception, ServerException_Exception
     ;
+
+    /**
+     * 
+     */
+    @WebMethod
+    @RequestWrapper(localName = "getUser", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetUser")
+    @ResponseWrapper(localName = "getUserResponse", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetUserResponse")
+    @Action(input = "http://innerServices.server.bsr/UserService/getUserRequest", output = "http://innerServices.server.bsr/UserService/getUserResponse")
+    public void getUser();
 
 }

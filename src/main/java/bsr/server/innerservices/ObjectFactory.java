@@ -24,10 +24,13 @@ import javax.xml.namespace.QName;
 @XmlRegistry
 public class ObjectFactory {
 
-    private final static QName _GetAccountsResponse_QNAME = new QName("http://innerServices.server.bsr/", "getAccountsResponse");
-    private final static QName _SessionException_QNAME = new QName("http://innerServices.server.bsr/", "SessionException");
-    private final static QName _UserException_QNAME = new QName("http://innerServices.server.bsr/", "UserException");
-    private final static QName _GetAccounts_QNAME = new QName("http://innerServices.server.bsr/", "getAccounts");
+    private final static QName _GetUserResponse_QNAME = new QName("http://innerServices.server.bsr/", "getUserResponse");
+    private final static QName _NotValidException_QNAME = new QName("http://innerServices.server.bsr/", "NotValidException");
+    private final static QName _ServerException_QNAME = new QName("http://innerServices.server.bsr/", "ServerException");
+    private final static QName _LoginResponse_QNAME = new QName("http://innerServices.server.bsr/", "loginResponse");
+    private final static QName _GetUser_QNAME = new QName("http://innerServices.server.bsr/", "getUser");
+    private final static QName _AuthException_QNAME = new QName("http://innerServices.server.bsr/", "AuthException");
+    private final static QName _Login_QNAME = new QName("http://innerServices.server.bsr/", "login");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: bsr.server.innerservices
@@ -37,87 +40,122 @@ public class ObjectFactory {
     }
 
     /**
-     * Create an instance of {@link GetAccountsResponse }
+     * Create an instance of {@link GetUserResponse }
      * 
      */
-    public GetAccountsResponse createGetAccountsResponse() {
-        return new GetAccountsResponse();
+    public GetUserResponse createGetUserResponse() {
+        return new GetUserResponse();
     }
 
     /**
-     * Create an instance of {@link SessionException }
+     * Create an instance of {@link NotValidException }
      * 
      */
-    public SessionException createSessionException() {
-        return new SessionException();
+    public NotValidException createNotValidException() {
+        return new NotValidException();
     }
 
     /**
-     * Create an instance of {@link UserException }
+     * Create an instance of {@link ServerException }
      * 
      */
-    public UserException createUserException() {
-        return new UserException();
+    public ServerException createServerException() {
+        return new ServerException();
     }
 
     /**
-     * Create an instance of {@link GetAccounts }
+     * Create an instance of {@link LoginResponse }
      * 
      */
-    public GetAccounts createGetAccounts() {
-        return new GetAccounts();
+    public LoginResponse createLoginResponse() {
+        return new LoginResponse();
     }
 
     /**
-     * Create an instance of {@link User }
+     * Create an instance of {@link GetUser }
      * 
      */
-    public User createUser() {
-        return new User();
+    public GetUser createGetUser() {
+        return new GetUser();
     }
 
     /**
-     * Create an instance of {@link Account }
+     * Create an instance of {@link AuthException }
      * 
      */
-    public Account createAccount() {
-        return new Account();
+    public AuthException createAuthException() {
+        return new AuthException();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccountsResponse }{@code >}}
+     * Create an instance of {@link Login }
      * 
      */
-    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "getAccountsResponse")
-    public JAXBElement<GetAccountsResponse> createGetAccountsResponse(GetAccountsResponse value) {
-        return new JAXBElement<GetAccountsResponse>(_GetAccountsResponse_QNAME, GetAccountsResponse.class, null, value);
+    public Login createLogin() {
+        return new Login();
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link SessionException }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetUserResponse }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "SessionException")
-    public JAXBElement<SessionException> createSessionException(SessionException value) {
-        return new JAXBElement<SessionException>(_SessionException_QNAME, SessionException.class, null, value);
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "getUserResponse")
+    public JAXBElement<GetUserResponse> createGetUserResponse(GetUserResponse value) {
+        return new JAXBElement<GetUserResponse>(_GetUserResponse_QNAME, GetUserResponse.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link UserException }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link NotValidException }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "UserException")
-    public JAXBElement<UserException> createUserException(UserException value) {
-        return new JAXBElement<UserException>(_UserException_QNAME, UserException.class, null, value);
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "NotValidException")
+    public JAXBElement<NotValidException> createNotValidException(NotValidException value) {
+        return new JAXBElement<NotValidException>(_NotValidException_QNAME, NotValidException.class, null, value);
     }
 
     /**
-     * Create an instance of {@link JAXBElement }{@code <}{@link GetAccounts }{@code >}}
+     * Create an instance of {@link JAXBElement }{@code <}{@link ServerException }{@code >}}
      * 
      */
-    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "getAccounts")
-    public JAXBElement<GetAccounts> createGetAccounts(GetAccounts value) {
-        return new JAXBElement<GetAccounts>(_GetAccounts_QNAME, GetAccounts.class, null, value);
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "ServerException")
+    public JAXBElement<ServerException> createServerException(ServerException value) {
+        return new JAXBElement<ServerException>(_ServerException_QNAME, ServerException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link LoginResponse }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "loginResponse")
+    public JAXBElement<LoginResponse> createLoginResponse(LoginResponse value) {
+        return new JAXBElement<LoginResponse>(_LoginResponse_QNAME, LoginResponse.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link GetUser }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "getUser")
+    public JAXBElement<GetUser> createGetUser(GetUser value) {
+        return new JAXBElement<GetUser>(_GetUser_QNAME, GetUser.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link AuthException }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "AuthException")
+    public JAXBElement<AuthException> createAuthException(AuthException value) {
+        return new JAXBElement<AuthException>(_AuthException_QNAME, AuthException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Login }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "login")
+    public JAXBElement<Login> createLogin(Login value) {
+        return new JAXBElement<Login>(_Login_QNAME, Login.class, null, value);
     }
 
 }

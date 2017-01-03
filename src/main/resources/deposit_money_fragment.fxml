@@ -25,15 +25,15 @@
                   <Label text="Title" />
                   <Label alignment="CENTER" text="Account" GridPane.rowIndex="1" />
                   <Label text="Amount" GridPane.rowIndex="2" />
-                  <TextField GridPane.columnIndex="1" />
-                  <ChoiceBox fx:id="accountChoice" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="titleTextField" GridPane.columnIndex="1" />
+                  <ChoiceBox fx:id="accountChoiceBox" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="amountTextField" maxWidth="1.7976931348623157E308" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                </children>
                <VBox.margin>
                   <Insets bottom="20.0" left="30.0" right="30.0" />
                </VBox.margin>
             </GridPane>
-            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Deposit" textFill="WHITE">
+            <Button alignment="CENTER" contentDisplay="CENTER" maxWidth="1.7976931348623157E308" mnemonicParsing="false" style="-fx-background-color: #3F51B5;" text="Deposit" textFill="WHITE" onAction="#depositAction">
                <VBox.margin>
                   <Insets left="30.0" right="30.0" />
                </VBox.margin>

@@ -1,8 +1,11 @@
 
 package bsr.server.innerservices;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -20,6 +23,7 @@ import javax.xml.bind.annotation.XmlType;
  *         &lt;element name="accountNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="open" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
+ *         &lt;element name="operations" type="{http://innerServices.server.bsr/}operation" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="owner" type="{http://innerServices.server.bsr/}user" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
@@ -35,6 +39,7 @@ import javax.xml.bind.annotation.XmlType;
     "accountNumber",
     "id",
     "open",
+    "operations",
     "owner"
 })
 public class Account {
@@ -43,6 +48,8 @@ public class Account {
     protected String accountNumber;
     protected int id;
     protected boolean open;
+    @XmlElement(nillable = true)
+    protected List<Operation> operations;
     protected User owner;
 
     /**
@@ -115,6 +122,35 @@ public class Account {
      */
     public void setOpen(boolean value) {
         this.open = value;
+    }
+
+    /**
+     * Gets the value of the operations property.
+     * 
+     * <p>
+     * This accessor method returns a reference to the live list,
+     * not a snapshot. Therefore any modification you make to the
+     * returned list will be present inside the JAXB object.
+     * This is why there is not a <CODE>set</CODE> method for the operations property.
+     * 
+     * <p>
+     * For example, to add a new item, do as follows:
+     * <pre>
+     *    getOperations().add(newItem);
+     * </pre>
+     * 
+     * 
+     * <p>
+     * Objects of the following type(s) are allowed in the list
+     * {@link Operation }
+     * 
+     * 
+     */
+    public List<Operation> getOperations() {
+        if (operations == null) {
+            operations = new ArrayList<Operation>();
+        }
+        return this.operations;
     }
 
     /**

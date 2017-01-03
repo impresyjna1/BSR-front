@@ -3,6 +3,7 @@ package bsr.server.innerservices;
 
 import java.util.List;
 import javax.jws.WebMethod;
+import javax.jws.WebParam;
 import javax.jws.WebResult;
 import javax.jws.WebService;
 import javax.xml.bind.annotation.XmlSeeAlso;
@@ -42,6 +43,38 @@ public interface AccountService {
     })
     public List<Account> getAccounts()
         throws SessionException_Exception, UserException_Exception
+    ;
+
+    /**
+     * 
+     * @param amount
+     * @param title
+     * @param targetAccountNumber
+     * @return
+     *     returns bsr.server.innerservices.Operation
+     * @throws AccountServiceException_Exception
+     * @throws NotValidException_Exception
+     * @throws OperationException_Exception
+     * @throws ServerException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "depositMoney", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.DepositMoney")
+    @ResponseWrapper(localName = "depositMoneyResponse", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.DepositMoneyResponse")
+    @Action(input = "http://innerServices.server.bsr/AccountService/depositMoneyRequest", output = "http://innerServices.server.bsr/AccountService/depositMoneyResponse", fault = {
+        @FaultAction(className = NotValidException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/NotValidException"),
+        @FaultAction(className = ServerException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/ServerException"),
+        @FaultAction(className = AccountServiceException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/AccountServiceException"),
+        @FaultAction(className = OperationException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/OperationException")
+    })
+    public Operation depositMoney(
+        @WebParam(name = "title", targetNamespace = "")
+        String title,
+        @WebParam(name = "amount", targetNamespace = "")
+        String amount,
+        @WebParam(name = "targetAccountNumber", targetNamespace = "")
+        String targetAccountNumber)
+        throws AccountServiceException_Exception, NotValidException_Exception, OperationException_Exception, ServerException_Exception
     ;
 
 }

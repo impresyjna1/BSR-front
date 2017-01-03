@@ -10,6 +10,10 @@ public abstract class DialogsUtil {
         showDialog(message, "Error", Alert.AlertType.ERROR);
     }
 
+    public static void showException(String message) {
+        showDialog(message, "Warning", Alert.AlertType.WARNING);
+    }
+
     private static void showDialog(String message, String title, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);
