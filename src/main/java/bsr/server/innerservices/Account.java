@@ -6,6 +6,7 @@ import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlElements;
 import javax.xml.bind.annotation.XmlType;
 
 
@@ -19,12 +20,26 @@ import javax.xml.bind.annotation.XmlType;
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="accountAmount" type="{http://www.w3.org/2001/XMLSchema}int"/>
  *         &lt;element name="accountNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="balance" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="feeCount" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="id" type="{http://innerServices.server.bsr/}objectId" minOccurs="0"/>
  *         &lt;element name="open" type="{http://www.w3.org/2001/XMLSchema}boolean"/>
- *         &lt;element name="operations" type="{http://innerServices.server.bsr/}operation" maxOccurs="unbounded" minOccurs="0"/>
- *         &lt;element name="owner" type="{http://innerServices.server.bsr/}user" minOccurs="0"/>
+ *         &lt;element name="operations" minOccurs="0">
+ *           &lt;complexType>
+ *             &lt;complexContent>
+ *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *                 &lt;sequence>
+ *                   &lt;choice maxOccurs="unbounded" minOccurs="0">
+ *                     &lt;element ref="{http://innerServices.server.bsr/}operation"/>
+ *                     &lt;element ref="{http://innerServices.server.bsr/}deposit"/>
+ *                   &lt;/choice>
+ *                 &lt;/sequence>
+ *               &lt;/restriction>
+ *             &lt;/complexContent>
+ *           &lt;/complexType>
+ *         &lt;/element>
+ *         &lt;element name="titleOFAccount" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -35,38 +50,23 @@ import javax.xml.bind.annotation.XmlType;
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "account", propOrder = {
-    "accountAmount",
     "accountNumber",
+    "balance",
+    "feeCount",
     "id",
     "open",
     "operations",
-    "owner"
+    "titleOFAccount"
 })
 public class Account {
 
-    protected int accountAmount;
     protected String accountNumber;
-    protected int id;
+    protected int balance;
+    protected int feeCount;
+    protected ObjectId id;
     protected boolean open;
-    @XmlElement(nillable = true)
-    protected List<Operation> operations;
-    protected User owner;
-
-    /**
-     * Gets the value of the accountAmount property.
-     * 
-     */
-    public int getAccountAmount() {
-        return accountAmount;
-    }
-
-    /**
-     * Sets the value of the accountAmount property.
-     * 
-     */
-    public void setAccountAmount(int value) {
-        this.accountAmount = value;
-    }
+    protected Account.Operations operations;
+    protected String titleOFAccount;
 
     /**
      * Gets the value of the accountNumber property.
@@ -93,18 +93,58 @@ public class Account {
     }
 
     /**
-     * Gets the value of the id property.
+     * Gets the value of the balance property.
      * 
      */
-    public int getId() {
+    public int getBalance() {
+        return balance;
+    }
+
+    /**
+     * Sets the value of the balance property.
+     * 
+     */
+    public void setBalance(int value) {
+        this.balance = value;
+    }
+
+    /**
+     * Gets the value of the feeCount property.
+     * 
+     */
+    public int getFeeCount() {
+        return feeCount;
+    }
+
+    /**
+     * Sets the value of the feeCount property.
+     * 
+     */
+    public void setFeeCount(int value) {
+        this.feeCount = value;
+    }
+
+    /**
+     * Gets the value of the id property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link ObjectId }
+     *     
+     */
+    public ObjectId getId() {
         return id;
     }
 
     /**
      * Sets the value of the id property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link ObjectId }
+     *     
      */
-    public void setId(int value) {
+    public void setId(ObjectId value) {
         this.id = value;
     }
 
@@ -127,54 +167,116 @@ public class Account {
     /**
      * Gets the value of the operations property.
      * 
-     * <p>
-     * This accessor method returns a reference to the live list,
-     * not a snapshot. Therefore any modification you make to the
-     * returned list will be present inside the JAXB object.
-     * This is why there is not a <CODE>set</CODE> method for the operations property.
-     * 
-     * <p>
-     * For example, to add a new item, do as follows:
-     * <pre>
-     *    getOperations().add(newItem);
-     * </pre>
-     * 
-     * 
-     * <p>
-     * Objects of the following type(s) are allowed in the list
-     * {@link Operation }
-     * 
-     * 
-     */
-    public List<Operation> getOperations() {
-        if (operations == null) {
-            operations = new ArrayList<Operation>();
-        }
-        return this.operations;
-    }
-
-    /**
-     * Gets the value of the owner property.
-     * 
      * @return
      *     possible object is
-     *     {@link User }
+     *     {@link Account.Operations }
      *     
      */
-    public User getOwner() {
-        return owner;
+    public Account.Operations getOperations() {
+        return operations;
     }
 
     /**
-     * Sets the value of the owner property.
+     * Sets the value of the operations property.
      * 
      * @param value
      *     allowed object is
-     *     {@link User }
+     *     {@link Account.Operations }
      *     
      */
-    public void setOwner(User value) {
-        this.owner = value;
+    public void setOperations(Account.Operations value) {
+        this.operations = value;
+    }
+
+    /**
+     * Gets the value of the titleOFAccount property.
+     * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
+     */
+    public String getTitleOFAccount() {
+        return titleOFAccount;
+    }
+
+    /**
+     * Sets the value of the titleOFAccount property.
+     * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
+     */
+    public void setTitleOFAccount(String value) {
+        this.titleOFAccount = value;
+    }
+
+
+    /**
+     * <p>Java class for anonymous complex type.
+     * 
+     * <p>The following schema fragment specifies the expected content contained within this class.
+     * 
+     * <pre>
+     * &lt;complexType>
+     *   &lt;complexContent>
+     *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+     *       &lt;sequence>
+     *         &lt;choice maxOccurs="unbounded" minOccurs="0">
+     *           &lt;element ref="{http://innerServices.server.bsr/}operation"/>
+     *           &lt;element ref="{http://innerServices.server.bsr/}deposit"/>
+     *         &lt;/choice>
+     *       &lt;/sequence>
+     *     &lt;/restriction>
+     *   &lt;/complexContent>
+     * &lt;/complexType>
+     * </pre>
+     * 
+     * 
+     */
+    @XmlAccessorType(XmlAccessType.FIELD)
+    @XmlType(name = "", propOrder = {
+        "operationOrDeposit"
+    })
+    public static class Operations {
+
+        @XmlElements({
+            @XmlElement(name = "operation", namespace = "http://innerServices.server.bsr/"),
+            @XmlElement(name = "deposit", namespace = "http://innerServices.server.bsr/", type = Deposit.class)
+        })
+        protected List<Operation> operationOrDeposit;
+
+        /**
+         * Gets the value of the operationOrDeposit property.
+         * 
+         * <p>
+         * This accessor method returns a reference to the live list,
+         * not a snapshot. Therefore any modification you make to the
+         * returned list will be present inside the JAXB object.
+         * This is why there is not a <CODE>set</CODE> method for the operationOrDeposit property.
+         * 
+         * <p>
+         * For example, to add a new item, do as follows:
+         * <pre>
+         *    getOperationOrDeposit().add(newItem);
+         * </pre>
+         * 
+         * 
+         * <p>
+         * Objects of the following type(s) are allowed in the list
+         * {@link Operation }
+         * {@link Deposit }
+         * 
+         * 
+         */
+        public List<Operation> getOperationOrDeposit() {
+            if (operationOrDeposit == null) {
+                operationOrDeposit = new ArrayList<Operation>();
+            }
+            return this.operationOrDeposit;
+        }
+
     }
 
 }

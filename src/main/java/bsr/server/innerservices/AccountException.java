@@ -3,21 +3,20 @@ package bsr.server.innerservices;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getUserResponse complex type.
+ * <p>Java class for AccountException complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getUserResponse">
+ * &lt;complexType name="AccountException">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://innerServices.server.bsr/}user" minOccurs="0"/>
+ *         &lt;element name="message" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,36 +26,35 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getUserResponse", propOrder = {
-    "_return"
+@XmlType(name = "AccountException", propOrder = {
+    "message"
 })
-public class GetUserResponse {
+public class AccountException {
 
-    @XmlElement(name = "return")
-    protected User _return;
+    protected String message;
 
     /**
-     * Gets the value of the return property.
+     * Gets the value of the message property.
      * 
      * @return
      *     possible object is
-     *     {@link User }
+     *     {@link String }
      *     
      */
-    public User getReturn() {
-        return _return;
+    public String getMessage() {
+        return message;
     }
 
     /**
-     * Sets the value of the return property.
+     * Sets the value of the message property.
      * 
      * @param value
      *     allowed object is
-     *     {@link User }
+     *     {@link String }
      *     
      */
-    public void setReturn(User value) {
-        this._return = value;
+    public void setMessage(String value) {
+        this.message = value;
     }
 
 }

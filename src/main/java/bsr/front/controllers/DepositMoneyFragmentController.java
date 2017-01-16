@@ -46,8 +46,16 @@ public class DepositMoneyFragmentController {
         try {
             Operation newOperation = null;
             newOperation = ServerConnection.getInstance().getAccountService().depositMoney(title, amount, selectedBankAccountNumber);
-        } catch (AccountServiceException_Exception | NotValidException_Exception | OperationException_Exception | ServerException_Exception e) {
+            DialogsUtil.showSuccess("Deposit succeeded \n Account balance: " + newOperation.getBalanceAfter());
+            clearForm();
+        } catch (AccountServiceException_Exception | NotValidException_Exception | OperationException_Exception | SessionException_Exception | AccountException_Exception | UserException_Exception  e) {
             DialogsUtil.showException(e.getMessage());
         }
+    }
+
+    private void clearForm() {
+        accountChoiceBox.valueProperty().set(null);
+        amountTextField.clear();
+        titleTextField.clear();
     }
 }

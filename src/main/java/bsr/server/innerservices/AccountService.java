@@ -52,10 +52,12 @@ public interface AccountService {
      * @param targetAccountNumber
      * @return
      *     returns bsr.server.innerservices.Operation
-     * @throws AccountServiceException_Exception
+     * @throws UserException_Exception
      * @throws NotValidException_Exception
+     * @throws AccountServiceException_Exception
+     * @throws SessionException_Exception
+     * @throws AccountException_Exception
      * @throws OperationException_Exception
-     * @throws ServerException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -63,9 +65,11 @@ public interface AccountService {
     @ResponseWrapper(localName = "depositMoneyResponse", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.DepositMoneyResponse")
     @Action(input = "http://innerServices.server.bsr/AccountService/depositMoneyRequest", output = "http://innerServices.server.bsr/AccountService/depositMoneyResponse", fault = {
         @FaultAction(className = NotValidException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/NotValidException"),
-        @FaultAction(className = ServerException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/ServerException"),
-        @FaultAction(className = AccountServiceException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/AccountServiceException"),
-        @FaultAction(className = OperationException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/OperationException")
+        @FaultAction(className = SessionException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/SessionException"),
+        @FaultAction(className = UserException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/UserException"),
+        @FaultAction(className = OperationException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/OperationException"),
+        @FaultAction(className = AccountException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/AccountException"),
+        @FaultAction(className = AccountServiceException_Exception.class, value = "http://innerServices.server.bsr/AccountService/depositMoney/Fault/AccountServiceException")
     })
     public Operation depositMoney(
         @WebParam(name = "title", targetNamespace = "")
@@ -74,7 +78,114 @@ public interface AccountService {
         String amount,
         @WebParam(name = "targetAccountNumber", targetNamespace = "")
         String targetAccountNumber)
-        throws AccountServiceException_Exception, NotValidException_Exception, OperationException_Exception, ServerException_Exception
+        throws AccountException_Exception, AccountServiceException_Exception, NotValidException_Exception, OperationException_Exception, SessionException_Exception, UserException_Exception
+    ;
+
+    /**
+     * 
+     * @param amount
+     * @param title
+     * @param targetAccountNumber
+     * @return
+     *     returns bsr.server.innerservices.Operation
+     * @throws NotValidException_Exception
+     * @throws UserException_Exception
+     * @throws AccountServiceException_Exception
+     * @throws SessionException_Exception
+     * @throws AccountException_Exception
+     * @throws OperationException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "withdrawMoney", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.WithdrawMoney")
+    @ResponseWrapper(localName = "withdrawMoneyResponse", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.WithdrawMoneyResponse")
+    @Action(input = "http://innerServices.server.bsr/AccountService/withdrawMoneyRequest", output = "http://innerServices.server.bsr/AccountService/withdrawMoneyResponse", fault = {
+        @FaultAction(className = NotValidException_Exception.class, value = "http://innerServices.server.bsr/AccountService/withdrawMoney/Fault/NotValidException"),
+        @FaultAction(className = SessionException_Exception.class, value = "http://innerServices.server.bsr/AccountService/withdrawMoney/Fault/SessionException"),
+        @FaultAction(className = UserException_Exception.class, value = "http://innerServices.server.bsr/AccountService/withdrawMoney/Fault/UserException"),
+        @FaultAction(className = OperationException_Exception.class, value = "http://innerServices.server.bsr/AccountService/withdrawMoney/Fault/OperationException"),
+        @FaultAction(className = AccountException_Exception.class, value = "http://innerServices.server.bsr/AccountService/withdrawMoney/Fault/AccountException"),
+        @FaultAction(className = AccountServiceException_Exception.class, value = "http://innerServices.server.bsr/AccountService/withdrawMoney/Fault/AccountServiceException")
+    })
+    public Operation withdrawMoney(
+        @WebParam(name = "title", targetNamespace = "")
+        String title,
+        @WebParam(name = "amount", targetNamespace = "")
+        String amount,
+        @WebParam(name = "targetAccountNumber", targetNamespace = "")
+        String targetAccountNumber)
+        throws AccountException_Exception, AccountServiceException_Exception, NotValidException_Exception, OperationException_Exception, SessionException_Exception, UserException_Exception
+    ;
+
+    /**
+     * 
+     * @param targetAccountNumber
+     * @return
+     *     returns bsr.server.innerservices.Operation
+     * @throws NotValidException_Exception
+     * @throws UserException_Exception
+     * @throws AccountServiceException_Exception
+     * @throws SessionException_Exception
+     * @throws OperationException_Exception
+     * @throws AccountChecksumException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getBankFeeFromAccount", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetBankFeeFromAccount")
+    @ResponseWrapper(localName = "getBankFeeFromAccountResponse", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetBankFeeFromAccountResponse")
+    @Action(input = "http://innerServices.server.bsr/AccountService/getBankFeeFromAccountRequest", output = "http://innerServices.server.bsr/AccountService/getBankFeeFromAccountResponse", fault = {
+        @FaultAction(className = NotValidException_Exception.class, value = "http://innerServices.server.bsr/AccountService/getBankFeeFromAccount/Fault/NotValidException"),
+        @FaultAction(className = SessionException_Exception.class, value = "http://innerServices.server.bsr/AccountService/getBankFeeFromAccount/Fault/SessionException"),
+        @FaultAction(className = UserException_Exception.class, value = "http://innerServices.server.bsr/AccountService/getBankFeeFromAccount/Fault/UserException"),
+        @FaultAction(className = OperationException_Exception.class, value = "http://innerServices.server.bsr/AccountService/getBankFeeFromAccount/Fault/OperationException"),
+        @FaultAction(className = AccountServiceException_Exception.class, value = "http://innerServices.server.bsr/AccountService/getBankFeeFromAccount/Fault/AccountServiceException"),
+        @FaultAction(className = AccountChecksumException_Exception.class, value = "http://innerServices.server.bsr/AccountService/getBankFeeFromAccount/Fault/AccountChecksumException")
+    })
+    public Operation getBankFeeFromAccount(
+        @WebParam(name = "targetAccountNumber", targetNamespace = "")
+        String targetAccountNumber)
+        throws AccountChecksumException_Exception, AccountServiceException_Exception, NotValidException_Exception, OperationException_Exception, SessionException_Exception, UserException_Exception
+    ;
+
+    /**
+     * 
+     * @param amount
+     * @param title
+     * @param targetAccountNumber
+     * @param sourceAccountNumber
+     * @return
+     *     returns bsr.server.innerservices.Operation
+     * @throws NotValidException_Exception
+     * @throws UserException_Exception
+     * @throws AccountServiceException_Exception
+     * @throws SessionException_Exception
+     * @throws AccountException_Exception
+     * @throws OperationException_Exception
+     * @throws IOException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "transferMoney", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.TransferMoney")
+    @ResponseWrapper(localName = "transferMoneyResponse", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.TransferMoneyResponse")
+    @Action(input = "http://innerServices.server.bsr/AccountService/transferMoneyRequest", output = "http://innerServices.server.bsr/AccountService/transferMoneyResponse", fault = {
+        @FaultAction(className = NotValidException_Exception.class, value = "http://innerServices.server.bsr/AccountService/transferMoney/Fault/NotValidException"),
+        @FaultAction(className = SessionException_Exception.class, value = "http://innerServices.server.bsr/AccountService/transferMoney/Fault/SessionException"),
+        @FaultAction(className = UserException_Exception.class, value = "http://innerServices.server.bsr/AccountService/transferMoney/Fault/UserException"),
+        @FaultAction(className = AccountServiceException_Exception.class, value = "http://innerServices.server.bsr/AccountService/transferMoney/Fault/AccountServiceException"),
+        @FaultAction(className = OperationException_Exception.class, value = "http://innerServices.server.bsr/AccountService/transferMoney/Fault/OperationException"),
+        @FaultAction(className = AccountException_Exception.class, value = "http://innerServices.server.bsr/AccountService/transferMoney/Fault/AccountException"),
+        @FaultAction(className = IOException_Exception.class, value = "http://innerServices.server.bsr/AccountService/transferMoney/Fault/IOException")
+    })
+    public Operation transferMoney(
+        @WebParam(name = "title", targetNamespace = "")
+        String title,
+        @WebParam(name = "amount", targetNamespace = "")
+        String amount,
+        @WebParam(name = "sourceAccountNumber", targetNamespace = "")
+        String sourceAccountNumber,
+        @WebParam(name = "targetAccountNumber", targetNamespace = "")
+        String targetAccountNumber)
+        throws AccountException_Exception, AccountServiceException_Exception, IOException_Exception, NotValidException_Exception, OperationException_Exception, SessionException_Exception, UserException_Exception
     ;
 
 }

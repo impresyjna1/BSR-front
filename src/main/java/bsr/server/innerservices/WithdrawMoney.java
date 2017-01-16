@@ -4,24 +4,22 @@ package bsr.server.innerservices;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlSeeAlso;
 import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for operation complex type.
+ * <p>Java class for withdrawMoney complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="operation">
+ * &lt;complexType name="withdrawMoney">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="amount" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="balanceAfter" type="{http://www.w3.org/2001/XMLSchema}int"/>
- *         &lt;element name="target_account" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
+ *         &lt;element name="title" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="amount" type="{http://www.w3.org/2001/XMLSchema}string"/>
+ *         &lt;element name="targetAccountNumber" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -31,22 +29,19 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "operation", propOrder = {
+@XmlType(name = "withdrawMoney", propOrder = {
     "title",
     "amount",
-    "balanceAfter",
-    "targetAccount"
+    "targetAccountNumber"
 })
-@XmlSeeAlso({
-    Deposit.class
-})
-public abstract class Operation {
+public class WithdrawMoney {
 
+    @XmlElement(required = true)
     protected String title;
-    protected int amount;
-    protected int balanceAfter;
-    @XmlElement(name = "target_account")
-    protected String targetAccount;
+    @XmlElement(required = true)
+    protected String amount;
+    @XmlElement(required = true)
+    protected String targetAccountNumber;
 
     /**
      * Gets the value of the title property.
@@ -75,57 +70,49 @@ public abstract class Operation {
     /**
      * Gets the value of the amount property.
      * 
+     * @return
+     *     possible object is
+     *     {@link String }
+     *     
      */
-    public int getAmount() {
+    public String getAmount() {
         return amount;
     }
 
     /**
      * Sets the value of the amount property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link String }
+     *     
      */
-    public void setAmount(int value) {
+    public void setAmount(String value) {
         this.amount = value;
     }
 
     /**
-     * Gets the value of the balanceAfter property.
-     * 
-     */
-    public int getBalanceAfter() {
-        return balanceAfter;
-    }
-
-    /**
-     * Sets the value of the balanceAfter property.
-     * 
-     */
-    public void setBalanceAfter(int value) {
-        this.balanceAfter = value;
-    }
-
-    /**
-     * Gets the value of the targetAccount property.
+     * Gets the value of the targetAccountNumber property.
      * 
      * @return
      *     possible object is
      *     {@link String }
      *     
      */
-    public String getTargetAccount() {
-        return targetAccount;
+    public String getTargetAccountNumber() {
+        return targetAccountNumber;
     }
 
     /**
-     * Sets the value of the targetAccount property.
+     * Sets the value of the targetAccountNumber property.
      * 
      * @param value
      *     allowed object is
      *     {@link String }
      *     
      */
-    public void setTargetAccount(String value) {
-        this.targetAccount = value;
+    public void setTargetAccountNumber(String value) {
+        this.targetAccountNumber = value;
     }
 
 }

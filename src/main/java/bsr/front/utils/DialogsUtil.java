@@ -14,6 +14,8 @@ public abstract class DialogsUtil {
         showDialog(message, "Warning", Alert.AlertType.WARNING);
     }
 
+    public static void showSuccess(String message) {showDialog(message, "Success", Alert.AlertType.INFORMATION);}
+
     private static void showDialog(String message, String title, Alert.AlertType alertType) {
         Alert alert = new Alert(alertType);
         alert.setTitle(title);

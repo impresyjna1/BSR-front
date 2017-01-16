@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getUserResponse complex type.
+ * <p>Java class for getBankFeeFromAccount complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getUserResponse">
+ * &lt;complexType name="getBankFeeFromAccount">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://innerServices.server.bsr/}user" minOccurs="0"/>
+ *         &lt;element name="targetAccountNumber" type="{http://www.w3.org/2001/XMLSchema}string"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,36 +27,36 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getUserResponse", propOrder = {
-    "_return"
+@XmlType(name = "getBankFeeFromAccount", propOrder = {
+    "targetAccountNumber"
 })
-public class GetUserResponse {
+public class GetBankFeeFromAccount {
 
-    @XmlElement(name = "return")
-    protected User _return;
+    @XmlElement(required = true)
+    protected String targetAccountNumber;
 
     /**
-     * Gets the value of the return property.
+     * Gets the value of the targetAccountNumber property.
      * 
      * @return
      *     possible object is
-     *     {@link User }
+     *     {@link String }
      *     
      */
-    public User getReturn() {
-        return _return;
+    public String getTargetAccountNumber() {
+        return targetAccountNumber;
     }
 
     /**
-     * Sets the value of the return property.
+     * Sets the value of the targetAccountNumber property.
      * 
      * @param value
      *     allowed object is
-     *     {@link User }
+     *     {@link String }
      *     
      */
-    public void setReturn(User value) {
-        this._return = value;
+    public void setTargetAccountNumber(String value) {
+        this.targetAccountNumber = value;
     }
 
 }

@@ -37,7 +37,7 @@ public class AccountsFragmentController {
             List<Account> accountsList = serverConnection.getAccountService().getAccounts();
             ObservableList<AccountModel> accountModels = FXCollections.observableArrayList();
             for(Account account: accountsList) {
-                accountModels.add(new AccountModel(account.getAccountNumber(), account.getAccountAmount()));
+                accountModels.add(new AccountModel(account.getAccountNumber(), account.getBalance()));
             }
             accountTable.setItems(accountModels);
             initializeTab();

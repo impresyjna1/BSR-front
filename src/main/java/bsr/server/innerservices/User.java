@@ -21,7 +21,7 @@ import javax.xml.bind.annotation.XmlType;
  *       &lt;sequence>
  *         &lt;element name="accounts" type="{http://innerServices.server.bsr/}account" maxOccurs="unbounded" minOccurs="0"/>
  *         &lt;element name="clientNumber" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
- *         &lt;element name="id" type="{http://www.w3.org/2001/XMLSchema}int"/>
+ *         &lt;element name="id" type="{http://innerServices.server.bsr/}objectId" minOccurs="0"/>
  *         &lt;element name="name" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="password" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
  *         &lt;element name="surname" type="{http://www.w3.org/2001/XMLSchema}string" minOccurs="0"/>
@@ -47,7 +47,7 @@ public class User {
     @XmlElement(nillable = true)
     protected List<Account> accounts;
     protected String clientNumber;
-    protected int id;
+    protected ObjectId id;
     protected String name;
     protected String password;
     protected String surname;
@@ -108,16 +108,24 @@ public class User {
     /**
      * Gets the value of the id property.
      * 
+     * @return
+     *     possible object is
+     *     {@link ObjectId }
+     *     
      */
-    public int getId() {
+    public ObjectId getId() {
         return id;
     }
 
     /**
      * Sets the value of the id property.
      * 
+     * @param value
+     *     allowed object is
+     *     {@link ObjectId }
+     *     
      */
-    public void setId(int value) {
+    public void setId(ObjectId value) {
         this.id = value;
     }
 

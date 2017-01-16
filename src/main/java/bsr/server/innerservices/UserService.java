@@ -27,12 +27,31 @@ public interface UserService {
 
     /**
      * 
+     * @return
+     *     returns bsr.server.innerservices.User
+     * @throws UserException_Exception
+     * @throws SessionException_Exception
+     */
+    @WebMethod
+    @WebResult(targetNamespace = "")
+    @RequestWrapper(localName = "getUser", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetUser")
+    @ResponseWrapper(localName = "getUserResponse", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetUserResponse")
+    @Action(input = "http://innerServices.server.bsr/UserService/getUserRequest", output = "http://innerServices.server.bsr/UserService/getUserResponse", fault = {
+        @FaultAction(className = SessionException_Exception.class, value = "http://innerServices.server.bsr/UserService/getUser/Fault/SessionException"),
+        @FaultAction(className = UserException_Exception.class, value = "http://innerServices.server.bsr/UserService/getUser/Fault/UserException")
+    })
+    public User getUser()
+        throws SessionException_Exception, UserException_Exception
+    ;
+
+    /**
+     * 
      * @param password
      * @param clientNumber
      * @return
      *     returns int
-     * @throws NotValidException_Exception
      * @throws ServerException_Exception
+     * @throws NotValidException_Exception
      * @throws AuthException_Exception
      */
     @WebMethod
@@ -51,14 +70,5 @@ public interface UserService {
         String password)
         throws AuthException_Exception, NotValidException_Exception, ServerException_Exception
     ;
-
-    /**
-     * 
-     */
-    @WebMethod
-    @RequestWrapper(localName = "getUser", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetUser")
-    @ResponseWrapper(localName = "getUserResponse", targetNamespace = "http://innerServices.server.bsr/", className = "bsr.server.innerservices.GetUserResponse")
-    @Action(input = "http://innerServices.server.bsr/UserService/getUserRequest", output = "http://innerServices.server.bsr/UserService/getUserResponse")
-    public void getUser();
 
 }

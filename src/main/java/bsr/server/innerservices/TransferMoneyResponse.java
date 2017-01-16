@@ -8,16 +8,16 @@ import javax.xml.bind.annotation.XmlType;
 
 
 /**
- * <p>Java class for getUserResponse complex type.
+ * <p>Java class for transferMoneyResponse complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="getUserResponse">
+ * &lt;complexType name="transferMoneyResponse">
  *   &lt;complexContent>
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
  *       &lt;sequence>
- *         &lt;element name="return" type="{http://innerServices.server.bsr/}user" minOccurs="0"/>
+ *         &lt;element name="return" type="{http://innerServices.server.bsr/}operation" minOccurs="0"/>
  *       &lt;/sequence>
  *     &lt;/restriction>
  *   &lt;/complexContent>
@@ -27,23 +27,23 @@ import javax.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "getUserResponse", propOrder = {
+@XmlType(name = "transferMoneyResponse", propOrder = {
     "_return"
 })
-public class GetUserResponse {
+public class TransferMoneyResponse {
 
     @XmlElement(name = "return")
-    protected User _return;
+    protected Operation _return;
 
     /**
      * Gets the value of the return property.
      * 
      * @return
      *     possible object is
-     *     {@link User }
+     *     {@link Operation }
      *     
      */
-    public User getReturn() {
+    public Operation getReturn() {
         return _return;
     }
 
@@ -52,10 +52,10 @@ public class GetUserResponse {
      * 
      * @param value
      *     allowed object is
-     *     {@link User }
+     *     {@link Operation }
      *     
      */
-    public void setReturn(User value) {
+    public void setReturn(Operation value) {
         this._return = value;
     }
 
