@@ -58,7 +58,7 @@ public class WithdrawMoneyFragmentController {
             List<Account> accountsList = serverConnection.getAccountService().getAccounts();
             ObservableList<AccountChoiceBoxModel> accountModels = FXCollections.observableArrayList();
             for (Account account : accountsList)
-                accountModels.add(new AccountChoiceBoxModel(account.getAccountNumber(), "Name: " + account.getTitleOFAccount() + "\nNumber: " + account.getAccountNumber() + "\nBalance: " + account.getBalance() + " $"));
+                accountModels.add(new AccountChoiceBoxModel(account.getAccountNumber(), "Name: " + account.getTitleOFAccount() + "\nNumber: " + account.getAccountNumber() + "\nBalance: " + (double) account.getBalance()/100 + " $"));
             accountChoiceBox.setItems(accountModels);
         } catch (SessionException_Exception | UserException_Exception e) {
             e.printStackTrace();

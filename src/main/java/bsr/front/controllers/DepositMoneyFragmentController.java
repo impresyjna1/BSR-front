@@ -37,7 +37,7 @@ public class DepositMoneyFragmentController {
         try {
             Operation newOperation = null;
             newOperation = ServerConnection.getInstance().getAccountService().depositMoney(title, amount, selectedBankAccountNumber);
-            DialogsUtil.showSuccess("Deposit succeeded \n Account balance: " + newOperation.getBalanceAfter() + "$");
+            DialogsUtil.showSuccess("Deposit succeeded \n Account balance: " + newOperation.getBalanceAfter()/100 + "$");
             clearFormAndRefresh();
         } catch (AccountServiceException_Exception | NotValidException_Exception | OperationException_Exception | SessionException_Exception | AccountException_Exception | UserException_Exception  e) {
             DialogsUtil.showException(e.getMessage());
@@ -59,7 +59,7 @@ public class DepositMoneyFragmentController {
             accountsList = serverConnection.getAccountService().getAccounts();
             ObservableList<AccountChoiceBoxModel> accountModels = FXCollections.observableArrayList();
             for (Account account : accountsList)
-                accountModels.add(new AccountChoiceBoxModel(account.getAccountNumber(), "Name: " + account.getTitleOFAccount() + "\nNumber: " + account.getAccountNumber() + "\nBalance: " + account.getBalance() + " $"));
+                accountModels.add(new AccountChoiceBoxModel(account.getAccountNumber(), "Name: " + account.getTitleOFAccount() + "\nNumber: " + account.getAccountNumber() + "\nBalance: " + (double) account.getBalance()/100 + " $"));
             accountChoiceBox.setItems(accountModels);
         } catch (SessionException_Exception | UserException_Exception e) {
             e.printStackTrace();
