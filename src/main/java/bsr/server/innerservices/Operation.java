@@ -38,7 +38,10 @@ import javax.xml.bind.annotation.XmlType;
     "targetAccount"
 })
 @XmlSeeAlso({
-    Deposit.class
+    Transfer.class,
+    BankFee.class,
+    Deposit.class,
+    Withdraw.class
 })
 public abstract class Operation {
 

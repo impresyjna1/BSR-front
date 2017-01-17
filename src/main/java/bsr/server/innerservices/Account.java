@@ -33,6 +33,9 @@ import javax.xml.bind.annotation.XmlType;
  *                   &lt;choice maxOccurs="unbounded" minOccurs="0">
  *                     &lt;element ref="{http://innerServices.server.bsr/}operation"/>
  *                     &lt;element ref="{http://innerServices.server.bsr/}deposit"/>
+ *                     &lt;element ref="{http://innerServices.server.bsr/}transfer"/>
+ *                     &lt;element ref="{http://innerServices.server.bsr/}withdraw"/>
+ *                     &lt;element ref="{http://innerServices.server.bsr/}bank_fee"/>
  *                   &lt;/choice>
  *                 &lt;/sequence>
  *               &lt;/restriction>
@@ -226,6 +229,9 @@ public class Account {
      *         &lt;choice maxOccurs="unbounded" minOccurs="0">
      *           &lt;element ref="{http://innerServices.server.bsr/}operation"/>
      *           &lt;element ref="{http://innerServices.server.bsr/}deposit"/>
+     *           &lt;element ref="{http://innerServices.server.bsr/}transfer"/>
+     *           &lt;element ref="{http://innerServices.server.bsr/}withdraw"/>
+     *           &lt;element ref="{http://innerServices.server.bsr/}bank_fee"/>
      *         &lt;/choice>
      *       &lt;/sequence>
      *     &lt;/restriction>
@@ -237,29 +243,32 @@ public class Account {
      */
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
-        "operationOrDeposit"
+        "operationOrDepositOrTransfer"
     })
     public static class Operations {
 
         @XmlElements({
             @XmlElement(name = "operation", namespace = "http://innerServices.server.bsr/"),
-            @XmlElement(name = "deposit", namespace = "http://innerServices.server.bsr/", type = Deposit.class)
+            @XmlElement(name = "deposit", namespace = "http://innerServices.server.bsr/", type = Deposit.class),
+            @XmlElement(name = "transfer", namespace = "http://innerServices.server.bsr/", type = Transfer.class),
+            @XmlElement(name = "withdraw", namespace = "http://innerServices.server.bsr/", type = Withdraw.class),
+            @XmlElement(name = "bank_fee", namespace = "http://innerServices.server.bsr/", type = BankFee.class)
         })
-        protected List<Operation> operationOrDeposit;
+        protected List<Operation> operationOrDepositOrTransfer;
 
         /**
-         * Gets the value of the operationOrDeposit property.
+         * Gets the value of the operationOrDepositOrTransfer property.
          * 
          * <p>
          * This accessor method returns a reference to the live list,
          * not a snapshot. Therefore any modification you make to the
          * returned list will be present inside the JAXB object.
-         * This is why there is not a <CODE>set</CODE> method for the operationOrDeposit property.
+         * This is why there is not a <CODE>set</CODE> method for the operationOrDepositOrTransfer property.
          * 
          * <p>
          * For example, to add a new item, do as follows:
          * <pre>
-         *    getOperationOrDeposit().add(newItem);
+         *    getOperationOrDepositOrTransfer().add(newItem);
          * </pre>
          * 
          * 
@@ -267,14 +276,17 @@ public class Account {
          * Objects of the following type(s) are allowed in the list
          * {@link Operation }
          * {@link Deposit }
+         * {@link Transfer }
+         * {@link Withdraw }
+         * {@link BankFee }
          * 
          * 
          */
-        public List<Operation> getOperationOrDeposit() {
-            if (operationOrDeposit == null) {
-                operationOrDeposit = new ArrayList<Operation>();
+        public List<Operation> getOperationOrDepositOrTransfer() {
+            if (operationOrDepositOrTransfer == null) {
+                operationOrDepositOrTransfer = new ArrayList<Operation>();
             }
-            return this.operationOrDeposit;
+            return this.operationOrDepositOrTransfer;
         }
 
     }

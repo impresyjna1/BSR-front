@@ -1,5 +1,6 @@
 package bsr.front.controllers;
 
+import bsr.front.models.AccountChoiceBoxModel;
 import bsr.front.singletonInstances.ServerConnection;
 import bsr.front.utils.DialogsUtil;
 import bsr.server.innerservices.*;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 public class DepositMoneyFragmentController {
     @FXML
-    private javafx.scene.control.ChoiceBox<String> accountChoiceBox;
+    private javafx.scene.control.ChoiceBox<AccountChoiceBoxModel> accountChoiceBox;
     @FXML
     private TextField amountTextField;
     @FXML
@@ -27,9 +28,9 @@ public class DepositMoneyFragmentController {
         ServerConnection serverConnection = ServerConnection.getInstance();
         try {
             List<Account> accountsList = serverConnection.getAccountService().getAccounts();
-            ObservableList<String> accountModels = FXCollections.observableArrayList();
+            ObservableList<AccountChoiceBoxModel> accountModels = FXCollections.observableArrayList();
             for (Account account : accountsList) {
-                accountModels.add("Name: " + account.getTitleOFAccount() + "\nNumber: " + account.getAccountNumber() + "\nBalance: " + account.getBalance() + " $");
+                accountModels.add(new AccountChoiceBoxModel(account.getAccountNumber(), "Name: " + account.getTitleOFAccount() + "\nNumber: " + account.getAccountNumber() + "\nBalance: " + account.getBalance() + " $"));
             }
             accountChoiceBox.setItems(accountModels);
         } catch (SessionException_Exception | UserException_Exception e) {
@@ -39,7 +40,7 @@ public class DepositMoneyFragmentController {
 
     @FXML
     public void depositAction(ActionEvent event) {
-        String selectedBankAccountNumber = accountChoiceBox.getValue();
+        String selectedBankAccountNumber = accountChoiceBox.getValue().getKey();
         String amount = amountTextField.getText();
         String title = titleTextField.getText();
         System.out.println(selectedBankAccountNumber);

@@ -30,8 +30,8 @@ public interface AccountService {
      * 
      * @return
      *     returns java.util.List<bsr.server.innerservices.Account>
-     * @throws UserException_Exception
      * @throws SessionException_Exception
+     * @throws UserException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -52,10 +52,10 @@ public interface AccountService {
      * @param targetAccountNumber
      * @return
      *     returns bsr.server.innerservices.Operation
+     * @throws SessionException_Exception
      * @throws UserException_Exception
      * @throws NotValidException_Exception
      * @throws AccountServiceException_Exception
-     * @throws SessionException_Exception
      * @throws AccountException_Exception
      * @throws OperationException_Exception
      */
@@ -88,10 +88,10 @@ public interface AccountService {
      * @param targetAccountNumber
      * @return
      *     returns bsr.server.innerservices.Operation
-     * @throws NotValidException_Exception
-     * @throws UserException_Exception
-     * @throws AccountServiceException_Exception
      * @throws SessionException_Exception
+     * @throws UserException_Exception
+     * @throws NotValidException_Exception
+     * @throws AccountServiceException_Exception
      * @throws AccountException_Exception
      * @throws OperationException_Exception
      */
@@ -122,12 +122,12 @@ public interface AccountService {
      * @param targetAccountNumber
      * @return
      *     returns bsr.server.innerservices.Operation
-     * @throws NotValidException_Exception
-     * @throws UserException_Exception
-     * @throws AccountServiceException_Exception
      * @throws SessionException_Exception
-     * @throws OperationException_Exception
+     * @throws UserException_Exception
+     * @throws NotValidException_Exception
      * @throws AccountChecksumException_Exception
+     * @throws AccountServiceException_Exception
+     * @throws OperationException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")
@@ -155,10 +155,10 @@ public interface AccountService {
      * @param sourceAccountNumber
      * @return
      *     returns bsr.server.innerservices.Operation
-     * @throws NotValidException_Exception
-     * @throws UserException_Exception
-     * @throws AccountServiceException_Exception
      * @throws SessionException_Exception
+     * @throws UserException_Exception
+     * @throws NotValidException_Exception
+     * @throws AccountServiceException_Exception
      * @throws AccountException_Exception
      * @throws OperationException_Exception
      * @throws IOException_Exception

@@ -50,9 +50,9 @@ public interface UserService {
      * @param clientNumber
      * @return
      *     returns int
+     * @throws AuthException_Exception
      * @throws ServerException_Exception
      * @throws NotValidException_Exception
-     * @throws AuthException_Exception
      */
     @WebMethod
     @WebResult(targetNamespace = "")

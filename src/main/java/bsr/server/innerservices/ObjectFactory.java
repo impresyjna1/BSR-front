@@ -38,12 +38,15 @@ public class ObjectFactory {
     private final static QName _TransferMoneyResponse_QNAME = new QName("http://innerServices.server.bsr/", "transferMoneyResponse");
     private final static QName _AccountChecksumException_QNAME = new QName("http://innerServices.server.bsr/", "AccountChecksumException");
     private final static QName _AccountServiceException_QNAME = new QName("http://innerServices.server.bsr/", "AccountServiceException");
+    private final static QName _Transfer_QNAME = new QName("http://innerServices.server.bsr/", "transfer");
     private final static QName _AccountException_QNAME = new QName("http://innerServices.server.bsr/", "AccountException");
+    private final static QName _BankFee_QNAME = new QName("http://innerServices.server.bsr/", "bank_fee");
     private final static QName _GetBankFeeFromAccount_QNAME = new QName("http://innerServices.server.bsr/", "getBankFeeFromAccount");
     private final static QName _Deposit_QNAME = new QName("http://innerServices.server.bsr/", "deposit");
     private final static QName _UserException_QNAME = new QName("http://innerServices.server.bsr/", "UserException");
     private final static QName _Operation_QNAME = new QName("http://innerServices.server.bsr/", "operation");
     private final static QName _OperationException_QNAME = new QName("http://innerServices.server.bsr/", "OperationException");
+    private final static QName _Withdraw_QNAME = new QName("http://innerServices.server.bsr/", "withdraw");
 
     /**
      * Create a new ObjectFactory that can be used to create new instances of schema derived classes for package: bsr.server.innerservices
@@ -173,11 +176,27 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link Transfer }
+     * 
+     */
+    public Transfer createTransfer() {
+        return new Transfer();
+    }
+
+    /**
      * Create an instance of {@link AccountException }
      * 
      */
     public AccountException createAccountException() {
         return new AccountException();
+    }
+
+    /**
+     * Create an instance of {@link BankFee }
+     * 
+     */
+    public BankFee createBankFee() {
+        return new BankFee();
     }
 
     /**
@@ -210,6 +229,14 @@ public class ObjectFactory {
      */
     public OperationException createOperationException() {
         return new OperationException();
+    }
+
+    /**
+     * Create an instance of {@link Withdraw }
+     * 
+     */
+    public Withdraw createWithdraw() {
+        return new Withdraw();
     }
 
     /**
@@ -355,12 +382,30 @@ public class ObjectFactory {
     }
 
     /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Transfer }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "transfer")
+    public JAXBElement<Transfer> createTransfer(Transfer value) {
+        return new JAXBElement<Transfer>(_Transfer_QNAME, Transfer.class, null, value);
+    }
+
+    /**
      * Create an instance of {@link JAXBElement }{@code <}{@link AccountException }{@code >}}
      * 
      */
     @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "AccountException")
     public JAXBElement<AccountException> createAccountException(AccountException value) {
         return new JAXBElement<AccountException>(_AccountException_QNAME, AccountException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link BankFee }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "bank_fee")
+    public JAXBElement<BankFee> createBankFee(BankFee value) {
+        return new JAXBElement<BankFee>(_BankFee_QNAME, BankFee.class, null, value);
     }
 
     /**
@@ -406,6 +451,15 @@ public class ObjectFactory {
     @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "OperationException")
     public JAXBElement<OperationException> createOperationException(OperationException value) {
         return new JAXBElement<OperationException>(_OperationException_QNAME, OperationException.class, null, value);
+    }
+
+    /**
+     * Create an instance of {@link JAXBElement }{@code <}{@link Withdraw }{@code >}}
+     * 
+     */
+    @XmlElementDecl(namespace = "http://innerServices.server.bsr/", name = "withdraw")
+    public JAXBElement<Withdraw> createWithdraw(Withdraw value) {
+        return new JAXBElement<Withdraw>(_Withdraw_QNAME, Withdraw.class, null, value);
     }
 
 }

@@ -11,7 +11,7 @@
    <center>
       <TableView fx:id="accountTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <columns>
-            <TableColumn prefWidth="75.0" text="Title" fx:id="accountTitleColumn"/>
+            <TableColumn fx:id="accountTitleColumn" prefWidth="75.0" text="Title" />
             <TableColumn fx:id="accountNumberColumn" minWidth="200.0" prefWidth="350.0" text="Account number" />
           <TableColumn fx:id="accountAmountColumn" prefWidth="88.0" text="Amount" />
           <TableColumn fx:id="actionColumn" prefWidth="75.0" text="Actions" />
