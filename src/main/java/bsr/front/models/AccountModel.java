@@ -9,11 +9,13 @@ import javafx.beans.property.StringProperty;
 public class AccountModel {
     private StringProperty accountNumber = new SimpleStringProperty();
     private StringProperty accountAmount = new SimpleStringProperty();
+    private StringProperty accountTitle = new SimpleStringProperty();
 
-    public AccountModel(String accountNumberString, int accountAmountInt) {
+    public AccountModel(String accountNumberString, int accountAmountInt, String accountTitleString) {
         this.accountNumber.set(accountNumberString);
         String accountAmountString = Float.toString(accountAmountInt/100) + "$";
         this.accountAmount.set(accountAmountString);
+        this.accountTitle.set(accountTitleString);
     }
 
     public String getAccountNumber() {
@@ -30,5 +32,17 @@ public class AccountModel {
 
     public StringProperty accountAmountProperty() {
         return accountAmount;
+    }
+
+    public String getAccountTitle() {
+        return accountTitle.get();
+    }
+
+    public StringProperty accountTitleProperty() {
+        return accountTitle;
+    }
+
+    public void setAccountTitle(String accountTitle) {
+        this.accountTitle.set(accountTitle);
     }
 }

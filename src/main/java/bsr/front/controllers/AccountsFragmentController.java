@@ -9,6 +9,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
 
 import java.util.List;
 
@@ -24,6 +25,8 @@ public class AccountsFragmentController {
     @FXML
     private javafx.scene.control.TableColumn<AccountModel, String> accountAmountColumn;
     @FXML
+    private javafx.scene.control.TableColumn<AccountModel, String> accountTitleColumn;
+    @FXML
     private javafx.scene.control.TableColumn<AccountModel, Button> actionColumn;
 
     public AccountsFragmentController() {
@@ -37,7 +40,7 @@ public class AccountsFragmentController {
             List<Account> accountsList = serverConnection.getAccountService().getAccounts();
             ObservableList<AccountModel> accountModels = FXCollections.observableArrayList();
             for(Account account: accountsList) {
-                accountModels.add(new AccountModel(account.getAccountNumber(), account.getBalance()));
+                accountModels.add(new AccountModel(account.getAccountNumber(), account.getBalance(), account.getTitleOFAccount()));
             }
             accountTable.setItems(accountModels);
             initializeTab();
@@ -50,6 +53,7 @@ public class AccountsFragmentController {
     private void initializeTab() {
         accountNumberColumn.setCellValueFactory(cellData -> cellData.getValue().accountNumberProperty());
         accountAmountColumn.setCellValueFactory(cellData -> cellData.getValue().accountAmountProperty());
+        accountTitleColumn.setCellValueFactory(cellData -> cellData.getValue().accountTitleProperty());
         //actionColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
     }
 }
