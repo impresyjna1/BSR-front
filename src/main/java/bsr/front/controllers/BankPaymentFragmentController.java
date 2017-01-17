@@ -6,22 +6,18 @@ import bsr.front.utils.DialogsUtil;
 import bsr.server.innerservices.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.fxml.FXML;
-import javafx.scene.control.TextField;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 
 import java.util.List;
 
 /**
- * Created by Impresyjna on 01.01.2017.
+ * Created by Impresyjna on 17.01.2017.
  */
-public class DepositMoneyFragmentController {
+public class BankPaymentFragmentController {
+
     @FXML
     private javafx.scene.control.ChoiceBox<AccountChoiceBoxModel> accountChoiceBox;
-    @FXML
-    private TextField amountTextField;
-    @FXML
-    private TextField titleTextField;
 
     @FXML
     public void initialize() {
@@ -29,26 +25,15 @@ public class DepositMoneyFragmentController {
     }
 
     @FXML
-    public void depositAction(ActionEvent event) {
+    public void bankPaymentAction(ActionEvent event) {
         String selectedBankAccountNumber = accountChoiceBox.getValue().getKey();
-        String amount = amountTextField.getText();
-        String title = titleTextField.getText();
-        System.out.println(selectedBankAccountNumber);
         try {
             Operation newOperation = null;
-            newOperation = ServerConnection.getInstance().getAccountService().depositMoney(title, amount, selectedBankAccountNumber);
-            DialogsUtil.showSuccess("Deposit succeeded \n Account balance: " + newOperation.getBalanceAfter() + "$");
-            clearFormAndRefresh();
-        } catch (AccountServiceException_Exception | NotValidException_Exception | OperationException_Exception | SessionException_Exception | AccountException_Exception | UserException_Exception  e) {
+            newOperation = ServerConnection.getInstance().getAccountService().getBankFeeFromAccount(selectedBankAccountNumber);
+            DialogsUtil.showSuccess("Bank fee payed \n Account balance: " + newOperation.getBalanceAfter()/100.0 + "$");
+        } catch (AccountServiceException_Exception | NotValidException_Exception | OperationException_Exception | SessionException_Exception | UserException_Exception  | AccountChecksumException_Exception e) {
             DialogsUtil.showException(e.getMessage());
         }
-    }
-
-    private void clearFormAndRefresh() {
-        accountChoiceBox.valueProperty().set(null);
-        amountTextField.clear();
-        titleTextField.clear();
-        getAccountsFromServer();
     }
 
     private void getAccountsFromServer() {
@@ -59,7 +44,7 @@ public class DepositMoneyFragmentController {
             accountsList = serverConnection.getAccountService().getAccounts();
             ObservableList<AccountChoiceBoxModel> accountModels = FXCollections.observableArrayList();
             for (Account account : accountsList)
-                accountModels.add(new AccountChoiceBoxModel(account.getAccountNumber(), "Name: " + account.getTitleOFAccount() + "\nNumber: " + account.getAccountNumber() + "\nBalance: " + account.getBalance() + " $"));
+                accountModels.add(new AccountChoiceBoxModel(account.getAccountNumber(), "Name: " + account.getTitleOFAccount() + "\nNumber: " + account.getAccountNumber()));
             accountChoiceBox.setItems(accountModels);
         } catch (SessionException_Exception | UserException_Exception e) {
             e.printStackTrace();
