@@ -29,7 +29,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="sumBalanceLabel" alignment="CENTER" prefHeight="138.0" prefWidth="523.0" text="Label" textFill="WHITE">
+                  <Label fx:id="accountsCountLabel" alignment="CENTER" prefHeight="138.0" prefWidth="523.0" text="Label" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -46,7 +46,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="accountsCountLabel" alignment="CENTER" prefHeight="137.0" prefWidth="519.0" text="Label">
+                  <Label fx:id="sumBalanceLabel" alignment="CENTER" prefHeight="137.0" prefWidth="519.0" text="Label">
                      <font>
                         <Font size="25.0" />
                      </font>
