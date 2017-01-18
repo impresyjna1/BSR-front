@@ -37,7 +37,7 @@ public class WithdrawMoneyFragmentController {
         try {
             Operation newOperation = null;
             newOperation = ServerConnection.getInstance().getAccountService().withdrawMoney(title, amount, selectedBankAccountNumber);
-            DialogsUtil.showSuccess("Withdraw succeeded \n Account balance: " + newOperation.getBalanceAfter() + "$");
+            DialogsUtil.showSuccess("Withdraw succeeded \n Account balance: " + (double) newOperation.getBalanceAfter()/100 + "$");
             clearFormAndRefresh();
         } catch (AccountServiceException_Exception | NotValidException_Exception | OperationException_Exception | SessionException_Exception | AccountException_Exception | UserException_Exception  e) {
             DialogsUtil.showException(e.getMessage());

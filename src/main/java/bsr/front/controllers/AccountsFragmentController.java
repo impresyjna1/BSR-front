@@ -26,8 +26,6 @@ public class AccountsFragmentController {
     private javafx.scene.control.TableColumn<AccountModel, String> accountAmountColumn;
     @FXML
     private javafx.scene.control.TableColumn<AccountModel, String> accountTitleColumn;
-    @FXML
-    private javafx.scene.control.TableColumn<AccountModel, Button> actionColumn;
 
     public AccountsFragmentController() {
         super();
@@ -54,6 +52,5 @@ public class AccountsFragmentController {
         accountNumberColumn.setCellValueFactory(cellData -> cellData.getValue().accountNumberProperty());
         accountAmountColumn.setCellValueFactory(cellData -> cellData.getValue().accountAmountProperty());
         accountTitleColumn.setCellValueFactory(cellData -> cellData.getValue().accountTitleProperty());
-        //actionColumn.setCellValueFactory(cellData -> cellData.getValue().dateProperty());
     }
 }

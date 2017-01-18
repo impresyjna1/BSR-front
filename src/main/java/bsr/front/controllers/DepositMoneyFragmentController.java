@@ -37,7 +37,7 @@ public class DepositMoneyFragmentController {
         try {
             Operation newOperation = null;
             newOperation = ServerConnection.getInstance().getAccountService().depositMoney(title, amount, selectedBankAccountNumber);
-            DialogsUtil.showSuccess("Deposit succeeded \n Account balance: " + newOperation.getBalanceAfter()/100 + "$");
+            DialogsUtil.showSuccess("Deposit succeeded \n Account balance: " + (double) newOperation.getBalanceAfter()/100 + "$");
             clearFormAndRefresh();
         } catch (AccountServiceException_Exception | NotValidException_Exception | OperationException_Exception | SessionException_Exception | AccountException_Exception | UserException_Exception  e) {
             DialogsUtil.showException(e.getMessage());
