@@ -11,11 +11,7 @@
    <top>
       <ToolBar nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #303F9F;" BorderPane.alignment="CENTER">
          <items>
-            <Button mnemonicParsing="false" style="-fx-background-color: #FFC107;" text="Log out" textFill="#2f2f2f">
-               <font>
-                  <Font name="System Bold" size="13.0" />
-               </font>
-            </Button>
+
          </items>
       </ToolBar>
    </top>

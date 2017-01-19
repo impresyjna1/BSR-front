@@ -24,7 +24,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="524.0" text="Ilość kont" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="524.0" text="Accounts number" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -41,7 +41,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="524.0" text="Suma pieniędzy" textAlignment="CENTER">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="524.0" text="Sum balance" textAlignment="CENTER">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -58,7 +58,7 @@
                   <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                </GridPane.margin>
                <children>
-                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="524.0" text="Ilość wykonanych operacji" textAlignment="CENTER" textFill="WHITE">
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="23.0" prefWidth="524.0" text="Operations done" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font size="18.0" />
                      </font>
