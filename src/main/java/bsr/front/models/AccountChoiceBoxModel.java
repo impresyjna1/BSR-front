@@ -3,6 +3,10 @@ package bsr.front.models;
 /**
  * Created by Impresyjna on 17.01.2017.
  */
+
+/**
+ * Model for ChoiceBox to show Accounts in app
+ */
 public class AccountChoiceBoxModel {
     private final String key;
     private final String value;

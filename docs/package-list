@@ -1,0 +1,6 @@
+
+bsr.front.controllers
+bsr.front.helpers
+bsr.front.models
+bsr.front.singletonInstances
+bsr.front.utils

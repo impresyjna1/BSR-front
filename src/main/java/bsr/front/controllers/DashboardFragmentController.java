@@ -12,6 +12,10 @@ import javafx.scene.control.Label;
 /**
  * Created by Impresyjna on 18.01.2017.
  */
+
+/**
+ * Controller for home fragment in app
+ */
 public class DashboardFragmentController {
 
     @FXML
@@ -21,6 +25,9 @@ public class DashboardFragmentController {
     @FXML
     private Label sumBalanceLabel;
 
+    /**
+     * Triggered when view is shown
+     */
     @FXML
     public void initialize() {
         ServerConnection serverConnection = ServerConnection.getInstance();

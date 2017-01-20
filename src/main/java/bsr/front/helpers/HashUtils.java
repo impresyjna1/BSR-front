@@ -6,7 +6,16 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Created by Asia on 31.12.2016.
  */
+
+/**
+ * Abstract class with method to generate hashed password to be send to server
+ */
 public abstract class HashUtils {
+    /**
+     * Method used to hash password to be send to server
+     * @param password plain text password
+     * @return password hashed using MD5
+     */
     public static String hashPassword(String password) {
         String generatedPassword = null;
         try {

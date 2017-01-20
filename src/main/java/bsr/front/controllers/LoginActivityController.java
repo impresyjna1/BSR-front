@@ -14,12 +14,20 @@ import javafx.scene.control.TextField;
 /**
  * Created by Asia on 30.12.2016.
  */
+
+/**
+ * Controller for login activity
+ */
 public class LoginActivityController {
     @FXML
     private TextField clientNumberTextField;
     @FXML
     private TextField passwordTextField;
 
+    /**
+     * Action triggered on button click
+     * @param event
+     */
     @FXML
     private void loginAction(ActionEvent event) {
         String login = clientNumberTextField.getText();

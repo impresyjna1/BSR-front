@@ -7,6 +7,9 @@ import javafx.stage.Stage;
 
 import java.net.MalformedURLException;
 
+/**
+ * Main class of app. Start whole client
+ */
 public class Client extends Application {
 
     @Override

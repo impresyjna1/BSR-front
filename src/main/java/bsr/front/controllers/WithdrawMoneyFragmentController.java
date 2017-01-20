@@ -15,6 +15,10 @@ import java.util.List;
 /**
  * Created by Impresyjna on 17.01.2017.
  */
+
+/**
+ * Controller for withdraw money fragment
+ */
 public class WithdrawMoneyFragmentController {
     @FXML
     private javafx.scene.control.ChoiceBox<AccountChoiceBoxModel> accountChoiceBox;
@@ -23,11 +27,18 @@ public class WithdrawMoneyFragmentController {
     @FXML
     private TextField titleTextField;
 
+    /**
+     * Triggered when view is shown
+     */
     @FXML
     public void initialize() {
         getAccountsFromServer();
     }
 
+    /**
+     * Action triggered on button click.
+     * @param event
+     */
     @FXML
     public void withdrawAction(ActionEvent event) {
         String selectedBankAccountNumber = accountChoiceBox.getValue().getKey();
@@ -44,6 +55,9 @@ public class WithdrawMoneyFragmentController {
         }
     }
 
+    /**
+     * Clears all textFields and choiceBox
+     */
     private void clearFormAndRefresh() {
         accountChoiceBox.valueProperty().set(null);
         amountTextField.clear();
@@ -51,6 +65,9 @@ public class WithdrawMoneyFragmentController {
         getAccountsFromServer();
     }
 
+    /**
+     * Method to get user accounts list from server and prepare data to be shown in checkboxes
+     */
     private void getAccountsFromServer() {
         accountChoiceBox.getItems().clear();
         ServerConnection serverConnection = ServerConnection.getInstance();

@@ -15,6 +15,10 @@ import java.util.List;
 /**
  * Created by Impresyjna on 01.01.2017.
  */
+
+/**
+ * Controller for deposit money fragment
+ */
 public class DepositMoneyFragmentController {
     @FXML
     private javafx.scene.control.ChoiceBox<AccountChoiceBoxModel> accountChoiceBox;
@@ -23,11 +27,18 @@ public class DepositMoneyFragmentController {
     @FXML
     private TextField titleTextField;
 
+    /**
+     * Triggered when view is shown
+     */
     @FXML
     public void initialize() {
         getAccountsFromServer();
     }
 
+    /**
+     * Action triggered when button pushed
+     * @param event Which button pushed
+     */
     @FXML
     public void depositAction(ActionEvent event) {
         String selectedBankAccountNumber = accountChoiceBox.getValue().getKey();
@@ -44,6 +55,9 @@ public class DepositMoneyFragmentController {
         }
     }
 
+    /**
+     * Clears all textFields and choiceBox
+     */
     private void clearFormAndRefresh() {
         accountChoiceBox.valueProperty().set(null);
         amountTextField.clear();
@@ -51,6 +65,9 @@ public class DepositMoneyFragmentController {
         getAccountsFromServer();
     }
 
+    /**
+     * Method to get accounts list from server and prepare data to be shown in checkboxes
+     */
     private void getAccountsFromServer() {
         accountChoiceBox.getItems().clear();
         ServerConnection serverConnection = ServerConnection.getInstance();

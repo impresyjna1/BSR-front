@@ -6,6 +6,10 @@ import javafx.beans.property.StringProperty;
 /**
  * Created by Impresyjna on 18.01.2017.
  */
+
+/**
+ * Model of operation to be shown in history fragment view
+ */
 public class OperationModel {
     private StringProperty typeProperty = new SimpleStringProperty();
     private StringProperty titleProperty = new SimpleStringProperty();

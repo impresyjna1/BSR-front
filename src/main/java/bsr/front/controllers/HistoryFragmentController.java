@@ -14,6 +14,10 @@ import java.util.List;
 /**
  * Created by Impresyjna on 18.01.2017.
  */
+
+/**
+ * Controller for history fragment in app
+ */
 public class HistoryFragmentController {
     @FXML
     private javafx.scene.control.ChoiceBox<AccountChoiceBoxModel> accountChoiceBox;
@@ -32,11 +36,18 @@ public class HistoryFragmentController {
     @FXML
     private javafx.scene.control.TableColumn<OperationModel, String> balanceAfterColumn;
 
+    /**
+     * Triggered when view is shown
+     */
     @FXML
     public void initialize() {
         getAccountsFromServer();
     }
 
+    /**
+     * Action triggered on button clicked. Shows operations for account
+     * @param event
+     */
     @FXML
     public void displayAction(ActionEvent event) {
         String selectedBankAccountNumber = accountChoiceBox.getValue().getKey();
@@ -77,6 +88,9 @@ public class HistoryFragmentController {
         }
     }
 
+    /**
+     * Connect data with table columns
+     */
     private void initializeTab() {
         typeColumn.setCellValueFactory(cellData -> cellData.getValue().typePropertyProperty());
         titleColumn.setCellValueFactory(cellData -> cellData.getValue().titlePropertyProperty());
@@ -86,6 +100,9 @@ public class HistoryFragmentController {
         balanceAfterColumn.setCellValueFactory(cellData -> cellData.getValue().balanceAfterPropertyProperty());
     }
 
+    /**
+     * Method to get accounts list from server and prepare data to be shown in checkboxes
+     */
     private void getAccountsFromServer() {
         accountChoiceBox.getItems().clear();
         ServerConnection serverConnection = ServerConnection.getInstance();

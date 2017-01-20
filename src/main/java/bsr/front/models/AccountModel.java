@@ -6,6 +6,10 @@ import javafx.beans.property.StringProperty;
 /**
  * Created by Impresyjna on 01.01.2017.
  */
+
+/**
+ * Model of account to be shown in accounts fragment view
+ */
 public class AccountModel {
     private StringProperty accountNumber = new SimpleStringProperty();
     private StringProperty accountAmount = new SimpleStringProperty();

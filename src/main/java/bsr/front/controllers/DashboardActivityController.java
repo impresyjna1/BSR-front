@@ -11,6 +11,10 @@ import java.io.IOException;
 /**
  * Created by Impresyjna on 31.12.2016.
  */
+
+/**
+ * Controller for whole dashboard in app  - the one with anchor pane to show all fragments
+ */
 public class DashboardActivityController {
     @FXML
     private AnchorPane containerAnchor;
@@ -55,6 +59,10 @@ public class DashboardActivityController {
         anchorWithFragment("/withdraw_money_fragment.fxml");
     }
 
+    /**
+     * Show chosen fragment in anchor pane
+     * @param fragmentPathName path to resource to be shown
+     */
     public void anchorWithFragment(String fragmentPathName) {
         try {
             Node view = FXMLLoader.load(getClass().getResource(fragmentPathName));

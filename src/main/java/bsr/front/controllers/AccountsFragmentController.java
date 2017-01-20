@@ -16,6 +16,10 @@ import java.util.List;
 /**
  * Created by Impresyjna on 01.01.2017.
  */
+
+/**
+ * Controller for accounts fragment in application
+ */
 public class AccountsFragmentController {
 
     @FXML
@@ -31,6 +35,10 @@ public class AccountsFragmentController {
         super();
 
     }
+
+    /**
+     * Triggered when fragment is shown
+     */
     @FXML
     public void initialize() {
         ServerConnection serverConnection = ServerConnection.getInstance();
@@ -47,7 +55,9 @@ public class AccountsFragmentController {
         }
     }
 
-
+    /**
+     * Connect data to cell in table
+     */
     private void initializeTab() {
         accountNumberColumn.setCellValueFactory(cellData -> cellData.getValue().accountNumberProperty());
         accountAmountColumn.setCellValueFactory(cellData -> cellData.getValue().accountAmountProperty());

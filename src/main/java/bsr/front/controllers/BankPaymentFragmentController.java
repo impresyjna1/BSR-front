@@ -14,16 +14,27 @@ import java.util.List;
 /**
  * Created by Impresyjna on 17.01.2017.
  */
+
+/**
+ * Controller for bank payment fragment in app
+ */
 public class BankPaymentFragmentController {
 
     @FXML
     private javafx.scene.control.ChoiceBox<AccountChoiceBoxModel> accountChoiceBox;
 
+    /**
+     * Triggered when view is shown
+     */
     @FXML
     public void initialize() {
         getAccountsFromServer();
     }
 
+    /**
+     * Action on button clicked
+     * @param event Which button triggered
+     */
     @FXML
     public void bankPaymentAction(ActionEvent event) {
         String selectedBankAccountNumber = accountChoiceBox.getValue().getKey();
@@ -36,6 +47,9 @@ public class BankPaymentFragmentController {
         }
     }
 
+    /**
+     * Method to get accounts list from server and prepare data to be shown in checkboxes
+     */
     private void getAccountsFromServer() {
         accountChoiceBox.getItems().clear();
         ServerConnection serverConnection = ServerConnection.getInstance();
